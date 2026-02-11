@@ -11,6 +11,11 @@ except LookupError:
     nltk.download('punkt')
     nltk.download('punkt_tab')
 
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
 ps = PorterStemmer()
 
 def transform_text(text):
@@ -59,4 +64,5 @@ if st.button('Predict'):
     else:
 
         st.header("Not Spam")
+
 
