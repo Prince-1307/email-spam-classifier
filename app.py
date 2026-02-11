@@ -5,6 +5,12 @@ from nltk.corpus import stopwords
 import nltk
 from nltk.stem.porter import PorterStemmer
 
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+    nltk.download('punkt_tab')
+
 ps = PorterStemmer()
 
 def transform_text(text):
@@ -53,3 +59,4 @@ if st.button('Predict'):
     else:
 
         st.header("Not Spam")
+
